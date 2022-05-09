@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Main</title>
+</head>
+
+<body>
+    <h1>Домашняя работа к 2-му уроку. Задание №4</h1>
+    <script>
+        "use strict"
+        /*4. Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с
+двумя параметрами. Т.е. например, функция для сложения должна принимать два числа,
+складывать их и возвращать результат. Обязательно использовать оператор return.*/
+        function sum(a, b) {
+            return a + b;
+        }
+        function diff(a, b) {
+            return a - b;
+        }
+        function multiplic(a, b) {
+            return a * b;
+        }
+        function division(a, b) {
+            if (a == 0 || b == 0) {
+                console.log("Один из операторов равен 0. Действие не возможно");
+                return;
+            } else {
+                return a / b;
+            }
+        }
+        let a = 13;
+        let b = 8;
+        let result;
+        console.log("Сумма = " + sum(a, b));
+        console.log("Разность = " + diff(a, b));
+        console.log("Произведение = " + multiplic(a, b));
+        result = division(a, b)
+        if (result != undefined) { console.log("Частное = " + result); }
+        /*5. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+        где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от
+        переданного значения операции (использовать switch) выполнить одну из арифметических операций
+        (использовать функции из задания 4) и вернуть полученное значение.*/
+        function mathOperation(arg1, arg2, operation) {
+            if (!isNaN(arg1) && !isNaN(arg2)) {
+                switch (operation) {
+                    case "+":
+                        return sum(arg1, arg2);
+
+                    case "-":
+                        return diff(arg1, arg2);
+
+                    case "*":
+                        return multiplic(arg1, arg2);
+
+                    case "/":
+                        return division(arg1, arg2);
+
+                    default:
+                        alert("введена неверная операция");
+                        return "Не выполнено";
+
+                }
+            } else {
+                console.log("Введены нечисловые операнды");
+                return "Не выполнено";
+            }
+        }
+        a = +prompt("Введите первое число: ");
+        b = +prompt("Введите второе число: ");
+        let oper = prompt("Введите операцию(+,-,*,/): ");
+        console.log(`Результат ${a} ${oper} ${b} = ${mathOperation(a, b, oper)}`);
+    </script>
+
+</body>
+
+</html>
