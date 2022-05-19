@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div>Lorem, ipsum dolor.</div>
     <div>Lorem, ipsum dolor.</div>
@@ -17,7 +19,12 @@
     padding. -->
 
     <script>
-        
+        "use strict";
+        let blok = document.querySelectorAll("div");
+        blok.forEach(function (item) {
+            item.style.padding = "10px";
+        });
     </script>
 </body>
+
 </html>
