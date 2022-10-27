@@ -26,7 +26,15 @@
     -->
 
     <script>
-        
+        const windowInnerHeight = window.innerHeight;
+        const mes = document.querySelector(".message");
+        const btn1 = document.querySelector("button");
+        const audioElement = new Audio('notification.mp3');
+        btn1.addEventListener("click", event => {
+            audioElement.play();
+            mes.style.top = windowInnerHeight - mes.clientHeight + "px";
+            mes.style.transform = "translateY(-20px)";
+        })
     </script>
 </body>
 

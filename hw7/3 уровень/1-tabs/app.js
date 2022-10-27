@@ -20,7 +20,10 @@ const texts = {
 function clickHandler(event) {
     // здесь вызывайте changeText и changeActiveClass, и передавайте
     // им объект события.
-   
+    changeActiveClass(event);
+    changeText(event);
+
+
 }
 
 /**
@@ -29,7 +32,9 @@ function clickHandler(event) {
  * @param {MouseEvent} event 
  */
 function changeActiveClass(event) {
-    
+    links.forEach(element => { if (element.classList.contains("active")) { element.classList.remove("active") } });
+    event.target.classList.add("active");
+
 }
 
 /**
@@ -39,5 +44,12 @@ function changeActiveClass(event) {
  * @param {MouseEvent} event 
  */
 function changeText(event) {
-    
+
+    blocText.innerText = texts[`text${event.target.textContent[5]}`];
 }
+
+const blocText = document.querySelector(".text");
+const links = document.querySelectorAll(".nav-link");
+links.forEach(element => {
+    element.addEventListener("click", clickHandler)
+})
